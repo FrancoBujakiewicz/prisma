@@ -2,6 +2,7 @@
  local white = "#FFFFFF"
  local gray = "#949494"
 
+ -- Abbreviating it in a global function
  _G.hl = function(group, opts) vim.api.nvim_set_hl(0, group, opts) end
 
  hl("Normal", { fg = white })
@@ -20,20 +21,19 @@
  hl("VisualNOS", { fg = white })
 
  hl("StatusLine", { fg = white })
--- hl("StatusLineNC", { fg = white })
 
--- Command line
+ -- Command line
  hl("ModeMsg", { fg = white })
  hl("MoreMsg", { fg = white })
  hl("WarningMsg", { fg = white })
  hl("ErrorMsg", { fg = white })
 
--- Search & Replace
+ -- Search & Replace
  hl("Search", { fg = white, bg = white })
  hl("IncSearch", { fg = white, bg = white, bold = true })
  hl("Substitute", { fg = white, bg = white })
 
--- Syntax Highlighting
+ -- Syntax Highlighting
  hl("Comment", { fg = gray })
  hl("String", { fg = white })
  hl("Character", { fg = white })
@@ -56,13 +56,13 @@
  hl("Structure", { fg = white })
  hl("Typedef", { fg = white })
 
--- Preprocessor
+ -- Preprocessor
  hl("PreProc", { fg = white })
  hl("Include", { fg = white })
  hl("Define", { fg = white })
  hl("Macro", { fg = white })
 
--- Special characters & markup
+ -- Special characters & markup
  hl("Special", { fg = white })
  hl("SpecialChar", { fg = white })
  hl("Tag", { fg = white })
@@ -70,13 +70,13 @@
  hl("SpecialComment", { fg = white, bold = true })
  hl("Debug", { fg = white })
 
--- Underline
+ -- Underline
  hl("Underlined", { underline = true })
  hl("Ignore", { fg = white })
  hl("Error", { fg = white, bold = true })
  hl("Todo", { fg = white, bg = white, bold = true })
 
--- Diagnostics
+ -- Diagnostics
  hl("DiagnosticError", { fg = white })
  hl("DiagnosticWarn", { fg = white })
  hl("DiagnosticInfo", { fg = white })
@@ -92,46 +92,46 @@
  hl("DiagnosticUnderlineInfo", { underline = true, sp = white })
  hl("DiagnosticUnderlineHint", { underline = true, sp = white })
 
--- Diff
+ -- Diff
  hl("DiffAdd", { fg = white })
  hl("DiffChange", { fg = white })
  hl("DiffDelete", { fg = white })
  hl("DiffText", { fg = white, bold = true })
 
--- Git signs
+ -- Git signs
  hl("GitSignsAdd", { fg = white })
  hl("GitSignsChange", { fg = white })
  hl("GitSignsDelete", { fg = white })
 
--- Completion menu (blink.cmp)
+ -- Completion menu (blink.cmp)
  hl("Pmenu", { fg = white, bg = white })
  hl("PmenuSel", { fg = white, bg = white, bold = true })
  hl("PmenuSbar", { bg = white })
  hl("PmenuThumb", { bg = white })
 
--- Folding
+ -- Folding
  hl("Folded", { fg = white, bg = white })
  hl("FoldColumn", { fg = white })
 
--- Spelling
+ -- Spelling
  hl("SpellBad", { underline = true, sp = white })
  hl("SpellCap", { underline = true, sp = white })
  hl("SpellLocal", { underline = true, sp = white })
  hl("SpellRare", { underline = true, sp = white })
 
--- Tabs & Buffers
+ -- Tabs & Buffers
  hl("TabLine", { fg = white })
  hl("TabLineSel", { fg = white, bold = true })
  hl("TabLineFill", {})
 
--- Telescope (fuzzy finder)
+ -- Telescope (fuzzy finder)
  hl("TelescopeNormal", { fg = white })
  hl("TelescopeSelection", { fg = white, bg = white, bold = true })
  hl("TelescopeMatching", { fg = white, bold = true })
  hl("TelescopePromptPrefix", { fg = white })
  hl("TelescopeSelection", { fg = white })
 
--- Treesitter highlights
+ -- Treesitter highlights
  hl("@comment", { fg = gray })
  hl("@string", { fg = white })
  hl("@number", { fg = white })
@@ -152,7 +152,7 @@
  hl("MiniStatuslineModeCommand", { fg = white })
  hl("MiniStatuslineModeOther", { fg = white })
 
--- Todo-comments highlights
+ -- Todo-comments highlights
  hl("TodoFgTODO", { fg = white, bold = true })
  hl("TodoFgNOTE", { fg = white, bold = true })
  hl("TodoFgHACK", { fg = white, bold = true })
