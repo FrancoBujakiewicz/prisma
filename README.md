@@ -3,7 +3,7 @@
 
  Prisma theme for Neovim. Why to have a single global theme when each language can has its own, define the colorscheme for each one and Prisma will load it when you open a file or switch to a tab with that language. 
 
- It has two layers of theming: `default`, it is the base theme, define there common styles across languages, `default` is also applied when the file doesn't has a type or there isn't a specific theme defined for that type in `lang` directory. There is where you must create `.lua` files with name convention to the languages names: `lang/java.lua` (Java theme), `lang/python.lua` (Python theme), etc.
+ It has two layers of theming: `default`, it is the base theme, define there common styles across languages, `default` is also applied when the file doesn't has a type or there isn't a specific theme defined for that type in `lang` directory. There is where you must create `.lua` files with name convention to the languages names: `lang/java.lua`, `lang/python.lua`, etc.
 
  In the `main` branch of this repository is `testfiles` with different languages files which can you test the theme.
 
@@ -29,12 +29,14 @@
  ├─lua/
    ├─lang/ # Languages specific themes.
    | ├─java.lua
-   | ├─lua.lua # Ha ha 'lua.lua' so funny.
+   | ├─lua.lua
    | ├─ruby.lua
    ├─default.lua # Default theme.
    ├─prisma.lua # Dynamic loader.
  ```
  - The default theme have elements from plugins (e.g. `GitSignsAdd` or `TelescopeNormal`) it is based on this Neovim configuration: https://github.com/FrancoBujakiewicz/dotfiles/blob/main/nvim/init.lua.
+
+ - As I said, Prisma was tested in my relatively minimal configuration, not in environments like frameworks as AstroVim or LazyVim. But since Prisma isn't so large, you can reutilize the code and adapt it to that you use. 
 
  #
 
@@ -51,8 +53,15 @@
 
  ## Future improvements
 
-   - As you can see in [prisma.lua](./prisma.lua).
-   - More integration with Neovim frameworks, and `.nvim` usage.
+   ### Theme loading
 
-   ### Idea
+As you can see in [prisma.lua](./prisma.lua), there can be some conceptual fixes with the packages loading. Performance shouldn't be a issue, isn't so usual have so many languages files and switch between they so rapidly. I made it in a way that works, not focused to optimization for now. Those issues could be:
+
+  - The `default` is reloaded each time the language changes.
+  - Should be better check if the language doesn't change between files.
+  - Are loaded from disk each time instead catch they to reutilize.
+
+   ### Automatic theme definitions
+
+   Idea to generate themes from a single template, without creating a file for each one, just defining a color palette to apply the template without manual configuration, this approach is good if you want the languages share the color distribution. This automatization give you less control, so there is no reason to discard the option to define the languages themes manually, both automatic generation and specific files.
 
