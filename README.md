@@ -1,17 +1,17 @@
 
  # Prisma theme
 
- Prisma theme for Neovim. Why to have a single global theme when each language can has its own, define the colorscheme for each one and Prisma will load it when you open a file or switch to a tab with that language. 
+ Prisma theme for Neovim. Why have a single global theme when each language can have its own, define a colorscheme for each one and Prisma will load it when you open a file or switch to a tab have that language. 
 
- It has two layers of theming: `default`, it is the base theme, define there common styles across languages, `default` is also applied when the file doesn't has a type or there isn't a specific theme defined for that type in `lang` directory. There is where you must create `.lua` files with name convention to the languages names: `lang/java.lua`, `lang/python.lua`, etc.
+ It has two layers of theming: `default` — the base theme, where you define common styles across languages, `default` is also applied when the file has no detected type or when there isn't a specific theme defined for that type in `lang` directory. That's where you must create `.lua` files with the language name: `lang/java.lua`, `lang/python.lua`, etc.
 
- In the `main` branch of this repository is `testfiles` with different languages files which can you test the theme.
+ In the `main` branch of this repository is `testfiles` with different languages files which you can use to test the theme.
 
  ## Usage
 
- To integrate Prisma to your Neovim configuration is easy as:
+Integrating Prisma into your Neovim configuration:
 
- - Clone the repository (In `config` branch if you just want configuration files):
+ - Clone the repository (Use the `config` branch if you just want configuration files):
  ```
  git clone --branch config --single-branch https://github.com/FrancoBujakiewicz/prisma ~/.config/nvim/lua/
  ```
@@ -34,9 +34,9 @@
    ├─default.lua # Default theme.
    ├─prisma.lua # Dynamic loader.
  ```
- - The default theme have elements from plugins (e.g. `GitSignsAdd` or `TelescopeNormal`) it is based on this Neovim configuration: https://github.com/FrancoBujakiewicz/dotfiles/blob/main/nvim/init.lua.
+ - The default theme includes elements from plugins (e.g. `GitSignsAdd` or `TelescopeNormal`) it's based on this Neovim configuration: https://github.com/FrancoBujakiewicz/dotfiles/blob/main/nvim/init.lua.
 
- - As I said, Prisma was tested in my relatively minimal configuration, not in environments like frameworks as AstroVim or LazyVim. But since Prisma isn't so large, you can reutilize the code and adapt it to that you use. 
+ - As I said, Prisma was tested in my relatively minimal configuration, not in frameworks like AstroVim or LazyVim. But since Prisma isn't so large, you can reuse the code and adapt it to your setup. 
 
  #
 
@@ -55,19 +55,19 @@
 
    ### Theme loading
 
-As you can see in [prisma.lua](./prisma.lua), there can be some conceptual fixes with the packages loading. Performance shouldn't be a issue, isn't so usual have so many languages files and switch between they so rapidly. I made it in a way that works, not focused to optimization for now. Those issues could be:
+As you can see in [prisma.lua](./prisma.lua), there can be some conceptual fixes with the packages loading. Performance shouldn't be an issue, it's uncommon have so many language files and switch between them so quickly. I made it in a way that works, not focused to optimization for now. These issues could be:
 
   - The `default` is reloaded each time the language changes.
   - Should be better check if the language doesn't change between files.
-  - Are loaded from disk each time instead catch they to reutilize.
+  - They are loaded from disk each time instead of being catched for reuse.
 
    ### Automatic theme definitions
 
-   Idea to generate themes from a single template, without creating a file for each one, just defining a color palette to apply the template without manual configuration, this approach is good if you want the languages share the color distribution. This automatization give you less control, so there is no reason to discard the option to define the languages themes manually, both automatic generation and specific files.
+   Idea to generate themes from a single template, without creating a file for each one — just define a color palette to apply the template automatically, this approach is good if you want the languages share the color distribution. This automatization gives you less control, so there's no reason to discard the option to defining the languages themes manually, both automatic generation and specific files.
 
 ## Credits
 
-Example code you see in the screenshots and `testfiles/` are from other repositories:
+Example code you see in the screenshots and `testfiles/` come from other repositories:
 
 - [testfiles/term.go](./testfiles/term.go): [ollama/ollama](https://github.com/ollama/ollama/blob/main/readline/term.go)
 - [testfiles/webfinger.rb](./testfiles/webfinger.rb): [mastodon/mastodon](https://github.com/mastodon/mastodon/blob/main/app/lib/webfinger.rb)
@@ -75,6 +75,6 @@ Example code you see in the screenshots and `testfiles/` are from other reposito
 - [testfiles/Mapper.java](./testfiles/Mapper.java): [FrancoBujakiewicz/latte](https://github.com/FrancoBujakiewicz/latte/blob/main/src/main/java/com/latteIceCream/latte/mapper/Mapper.java)
 - [testfiles/xmonad.hs](./testfiles/xmonad.hs): [FrancoBujakiewicz/xmonad](https://github.com/FrancoBujakiewicz/xmonad/blob/main/xmonad.hs)
 
-`hardware-configuration.nix` isn't in my NixOS repository, it is autogenerated by NixOS.
+`hardware-configuration.nix` isn't in my NixOS repository, it is auto-generated by NixOS.
 
 They are used with illustrative and testing only purpose.
