@@ -1,6 +1,4 @@
 
- -- Ha ha 'lua.lua' so funny
-
  local color = "#383894"
 
  local color_light0 = "#0000FF"
